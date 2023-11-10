@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class SaltoAlto : Atletas
 {
-    public override void velocidad() { float speed = 1; }
-    public override void salto() { float podersalto = 200; }
+    
+    public override void salto()
+    {
+        float podersalto = 200;
+        if (Input.GetKeyDown(KeyCode.Space) && estaenelsuelo)
+        {
+            rbvelocista.AddForce(Vector3.up * podersalto, ForceMode.Impulse);
+            estaenelsuelo = false;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

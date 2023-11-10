@@ -7,14 +7,13 @@ using UnityEngine.SocialPlatforms;
 public class Velocista : Atletas
 {
 
-    public override void velocidad() {
-        float speed = 5;
-
+    public override void velocidad() 
+    {
+        rapidez = 2;
+        float teclas = Input.GetAxis("Vertical");
+        rbvelocista.AddForce(Vector3.right * rapidez * teclas, ForceMode.Impulse);
     }
-    public override void salto() {
-        float podersalto = 10;
-
-    }
+    
 
 
     private void OnCollisionEnter(Collision collision)
