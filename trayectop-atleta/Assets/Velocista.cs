@@ -6,13 +6,13 @@ using UnityEngine.SocialPlatforms;
 
 public class Velocista : Atletas
 {
+    
+   public override void velocidad() {
+        
+       float teclas = Input.GetAxis("Vertical");
+       rbvelocista.AddForce(Vector3.right * Rapidez*2 * teclas, ForceMode.Impulse);
 
-    public override void velocidad() {
-        float rapidez = 2;
-        float teclas = Input.GetAxis("Vertical");
-        rbvelocista.AddForce(Vector3.right * rapidez * teclas, ForceMode.Impulse);
-
-    }
+   }
     
 
     
