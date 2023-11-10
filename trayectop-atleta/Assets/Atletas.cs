@@ -5,8 +5,26 @@ using UnityEngine;
 
 public class Atletas : MonoBehaviour
 {
+
     
-     public float rapidez = 1;
+    
+    public float rapidez{
+        get { return rapidez; }
+            
+             set
+        {
+            if (value > 5)
+            {
+                value = 5;
+            }
+            else if (value < 1) 
+            {
+                value = 1;
+            }
+         
+       }
+
+    }
     protected bool estaenelsuelo = true;
     protected Rigidbody rbvelocista;
 
