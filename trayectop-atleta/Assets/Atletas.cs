@@ -6,22 +6,22 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Globalization;
+using UnityEditor.Experimental.GraphView;
 
 public class Atletas : MonoBehaviour
 {
-    public TMP_InputField alo;
-    public void Valorrapidez()
-    {
-        int i = int.Parse(alo.text);
-        Rapidez = i;
-       
-    }
+    
     protected bool estaenelsuelo = true;
     protected Rigidbody rbvelocista;
     
    private int _Rapidez=1;
 
-    public int Rapidez { get { return _Rapidez; }set { _Rapidez = value; } }
+    public int Rapidez { get { return _Rapidez; }
+        set { if (value > 5) { _Rapidez = 5; }
+            else if(value<1){ _Rapidez = 1; }
+            else 
+                _Rapidez = value; }
+    }// ENCAPSULATION
 
     public virtual void velocidad()
     {
@@ -32,7 +32,7 @@ public class Atletas : MonoBehaviour
     }
     public virtual void salto()
     {
-        float podersalto = 5;
+        float podersalto = 40;
         if (Input.GetKeyDown(KeyCode.Space) && estaenelsuelo)
         {
             rbvelocista.AddForce(Vector3.up * podersalto, ForceMode.Impulse);
@@ -40,7 +40,7 @@ public class Atletas : MonoBehaviour
         }
 
     }
-    public int caso = 2;
+    
     
 
 

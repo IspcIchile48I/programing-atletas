@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-public class Velocista : Atletas
+public class Velocista : Atletas // INHERITANCE
 {
-    
-   public override void velocidad() {
+    public TMP_InputField alo;
+    public void Valorrapidez()
+    {
+        int i = int.Parse(alo.text);
+        Rapidez = i;
+
+    }
+
+    public override void velocidad() {
         
        float teclas = Input.GetAxis("Vertical");
        rbvelocista.AddForce(Vector3.right * Rapidez*2 * teclas, ForceMode.Impulse);
 
-   }
-    
-
-    
+    }// POLYMORPHISM
 
 
-private void OnCollisionEnter(Collision collision)
+
+
+
+    private void OnCollisionEnter(Collision collision)
 {
     if (collision.gameObject.CompareTag("Ground"))
     {
@@ -36,6 +44,6 @@ void Start()
 private void Update()
 {
     velocidad();
-    salto();
-}
+    salto();// ABSTRACTION
+    }
 }

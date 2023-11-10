@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaltoAlto : Atletas
+public class SaltoAlto : Atletas // INHERITANCE
 {
    
     public override void salto() {
@@ -12,7 +12,7 @@ public class SaltoAlto : Atletas
             rbvelocista.AddForce(Vector3.up * podersalto, ForceMode.Impulse);
             estaenelsuelo = false;
         }
-    }
+    }// POLYMORPHISM
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -30,7 +30,7 @@ public class SaltoAlto : Atletas
     }
     private void Update()
     {
-        velocidad();
+        velocidad();// ABSTRACTION
         salto();
     }
 }
