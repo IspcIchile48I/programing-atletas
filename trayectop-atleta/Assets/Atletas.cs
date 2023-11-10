@@ -28,18 +28,22 @@ public class Atletas : MonoBehaviour
     protected bool estaenelsuelo = true;
     protected Rigidbody rbvelocista;
 
-    public virtual void velocidad() {
-        float speed = 1;
+    public virtual void velocidad()
+    {
+        float rapidez = 1;
         float teclas = Input.GetAxis("Vertical");
-        rbvelocista.AddForce(Vector3.right * speed * teclas, ForceMode.Impulse);
+        rbvelocista.AddForce(Vector3.right * rapidez * teclas, ForceMode.Impulse);
+
     }
-    public virtual void salto() {
-        float podersalto = 200;
+    public virtual void salto()
+    {
+        float podersalto = 5;
         if (Input.GetKeyDown(KeyCode.Space) && estaenelsuelo)
         {
             rbvelocista.AddForce(Vector3.up * podersalto, ForceMode.Impulse);
             estaenelsuelo = false;
         }
+
     }
         
 

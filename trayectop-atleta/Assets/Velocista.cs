@@ -8,39 +8,34 @@ public class Velocista : Atletas
 {
 
     public override void velocidad() {
-        float speed = 5;
+        float rapidez = 2;
+        float teclas = Input.GetAxis("Vertical");
+        rbvelocista.AddForce(Vector3.right * rapidez * teclas, ForceMode.Impulse);
 
     }
-    public override void salto() {
-        float podersalto = 10;
+    
 
-    }
+    
 
 
-    private void OnCollisionEnter(Collision collision)
+private void OnCollisionEnter(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Ground"))
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            estaenelsuelo = true;
-
-        }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        rbvelocista = GetComponent<Rigidbody>();
+        estaenelsuelo = true;
 
     }
+}
+// Start is called before the first frame update
+void Start()
+{
 
+    rbvelocista = GetComponent<Rigidbody>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        velocidad();
-        salto();
-        
-
-
-    }
+}
+private void Update()
+{
+    velocidad();
+    salto();
+}
 }
